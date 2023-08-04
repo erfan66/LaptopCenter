@@ -1,4 +1,5 @@
 global using LaptopCenter.Data;
+using LaptopCenter.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>();
+builder.Services.AddScoped<ILaptopServices, LaptopServices>();
 
 var app = builder.Build();
 
